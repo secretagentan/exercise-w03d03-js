@@ -49,10 +49,16 @@ makeHobbits();
 
 var keepItSecretKeepItSafe = function() {
   // 1.  Create a div with an id of "the-ring".
+  var $ring = $('<div>');
+  $ring.attr('id', 'the-ring').addClass('magic-imbued-jewelry');
   // 2.  Give div#the-ring a class of "magic-imbued-jewelry".
   // 3.  Add div#the-ring as a child element of the li.hobbit
   //     representing "Frodo."
+  var $hobbits = $('.hobbit');
+  var $frodo = $hobbits.first();
+  $frodo.append($ring);
 }
+keepItSecretKeepItSafe();
 
 var makeBuddies = function() {
   // 1.  Create an aside tag.
