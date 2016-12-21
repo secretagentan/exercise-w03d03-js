@@ -2,23 +2,50 @@ console.log("Fellowship loaded.");
 
 var makeMiddleEarth = function() {
   // 1.  Create a section tag with an id of "middle-earth".
+  var $middleEarth = jQuery('<section>');
+  $middleEarth.attr("id", "middle-earth");
+
   // 2.  Create an article tag for each land in the lands array.
+  lands.forEach(function(land) {
+    var $land = jQuery('<article>');
+
   // 3.  Give each article tag a class of "land".
+    $land.addClass('land');
+
   // 4.  Inside each article tag include an h1 tag with the name
   //     of the land as content.
+    var $title = jQuery('<h1>');
+    $title.text(land);
+    $land.append($title);
+
   // 5.  Append each article.land to section#middle-earth.
+    $land.appendTo($middleEarth);
+  });
   // 6.  Append section#middle-earth to the document body.
+jQuery('body').append($middleEarth);
 }
+makeMiddleEarth();
+
 
 var makeHobbits = function() {
   // 1.  Create a ul tag with an id of "hobbits".
+  var $hobbits = jQuery("<ul>");
+  $hobbits.attr("id", "hobbits");
   // 2.  Create li tags for each Hobbit in the hobbits array.
+  hobbits.forEach(function(hobbit){
+    var $hobbit = jQuery('<li>');
   // 3.  Give each li tag a class of "hobbit".
   // 4.  Set the text of each li.hobbit to one of the Hobbits
   //     in the array.
+    $hobbit.attr("class", "hobbit");
+    $hobbit.text(hobbit);
+    $hobbits.append($hobbit);
+  })
   // 5.  Append the ul#hobbits to the article.land representing
   //     "The Shire" (the first article tag on the page).
+  jQuery('.land').first().append($hobbits);
 }
+makeHobbits();
 
 var keepItSecretKeepItSafe = function() {
   // 1.  Create a div with an id of "the-ring".
