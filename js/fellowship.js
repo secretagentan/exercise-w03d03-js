@@ -94,23 +94,36 @@ var beautifulStranger = function() {
 }
 beautifulStranger();
 
-var leaveTheShire = function() {
-  // 1.  "Assemble the Hobbits" and move them (as a list) to Rivendell.
-  var $hobbit = $('.hobbit');
-  console.log($hobbit);
-  var $rivendell = $('.land:eq(1)');
-  $($rivendell).append($hobbit);
-}
-leaveTheShire();
+// var leaveTheShire = function() {
+//   // 1.  "Assemble the Hobbits" and move them (as a list) to Rivendell.
+//   var $hobbit = $('.hobbit');
+//   console.log($hobbit);
+//   var $rivendell = $('.land:eq(1)');
+//   $($rivendell).append($hobbit);
+// }
+// leaveTheShire();
 
 var forgeTheFellowShip = function() {
   // 1.  Create a div with an id of "the-fellowship" within the
   //     section.land for "Rivendell". Append a list to it.
+  var $rivendell = $('.land:eq(1)');
+  var $fellowship = $('<div>').attr('id', 'the-fellowship').appendTo($rivendell);
+  var $list = $('<ul>').appendTo($fellowship);
+
   // 2.  Add each hobbit and buddy one at a time to
   //     'div#the-fellowship' list.
+  var $buddies = $('.buddy');
+  var moveBuddies = function(buddy) {
+    for (var i = 0; i < $buddies.length; i++) {
+      $buddies.appendTo($list);
   // 3.  After each character is added make an alert that they
   //     have joined your party.
+      alert($buddies[i].textContent + ' has joined the fellowship');
+  }
+  };
+  moveBuddies();
 }
+forgeTheFellowShip();
 
 var theBalrog = function() {
   // 1.  Select the "li.buddy" for "Gandalf"...
