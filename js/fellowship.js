@@ -26,7 +26,6 @@ jQuery('body').append($middleEarth);
 }
 makeMiddleEarth();
 
-
 var makeHobbits = function() {
   // 1.  Create a ul tag with an id of "hobbits".
   var $hobbits = jQuery("<ul>");
@@ -62,15 +61,28 @@ keepItSecretKeepItSafe();
 
 var makeBuddies = function() {
   // 1.  Create an aside tag.
+  var $aside = $('<aside>');
   // 2.  Create a ul tag with an id of "buddies" and append it to
   //     the aside tag.
+  var $buddies = $('<ul>').attr('id', 'buddies').appendTo($aside);
   // 3.  Create li tags for each buddy in the buddies array in
   //     data.js.
+  buddies.forEach(function(buddy) {
+    var $buddy = $('<li>').addClass('buddy').appendTo($buddies);
   // 4   Give each li tag a class of "buddy" and append them to
   //       "ul#buddies".
-  // 5.  Insert the aside tag as a child element of the secion.land
+    $buddy.text(buddy);
+    console.log($buddy);
+  })
+
+  // 5.  Insert the aside tag as a child element of the section.land
   //     representing "Rivendell."
+  console.log(lands[1]);
+  var $rivendell = $('.land:eq(1)');
+  console.log($rivendell);
+  jQuery($rivendell).append($aside);
 }
+makeBuddies();
 
 var beautifulStranger = function() {
   // 1.  Find the li.buddy representing "Strider".
