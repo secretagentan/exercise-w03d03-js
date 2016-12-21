@@ -53,8 +53,8 @@ var keepItSecretKeepItSafe = function() {
   // 2.  Give div#the-ring a class of "magic-imbued-jewelry".
   // 3.  Add div#the-ring as a child element of the li.hobbit
   //     representing "Frodo."
-  var $hobbits = $('.hobbit');
-  var $frodo = $hobbits.first();
+  var $hobbit = $('.hobbit');
+  var $frodo = $hobbit.first();
   $frodo.append($ring);
 }
 keepItSecretKeepItSafe();
@@ -81,18 +81,27 @@ var makeBuddies = function() {
   var $rivendell = $('.land:eq(1)');
   console.log($rivendell);
   jQuery($rivendell).append($aside);
-}
+};
 makeBuddies();
 
 var beautifulStranger = function() {
   // 1.  Find the li.buddy representing "Strider".
+  // console.log($('.buddy:eq(2)'));
+  var $strider = $('.buddy:eq(2)');
   // 2.  Change the "Strider" text to "Aragorn" and make its
   //     color green.
+  $strider.css({"color": "green"});
 }
+beautifulStranger();
 
 var leaveTheShire = function() {
   // 1.  "Assemble the Hobbits" and move them (as a list) to Rivendell.
+  var $hobbit = $('.hobbit');
+  console.log($hobbit);
+  var $rivendell = $('.land:eq(1)');
+  $($rivendell).append($hobbit);
 }
+leaveTheShire();
 
 var forgeTheFellowShip = function() {
   // 1.  Create a div with an id of "the-fellowship" within the
