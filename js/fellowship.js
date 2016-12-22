@@ -153,7 +153,8 @@ theBalrog();
 
 var hornOfGondor = function() {
   // 1.  Pop up an alert that the Horn of Gondor has been blown.
-  alert("THE HORN OF GONDOR HAS BEEN BLOWN");
+  // alert("THE HORN OF GONDOR HAS BEEN BLOWN");
+  console.log("THE HORN OF GONDOR HAS BEEN BLOWN");
   // 2.  Put a line-through on Boromir's name.
   var $boromir = $('.buddy:eq(3)');
   // 3.  Fade Boromir's opacity to 0.3 (he lives on in spirit).
@@ -166,7 +167,7 @@ var itsDangerousToGoAlone = function() {
   // 1.  Create a list with class "soulmates" in Mordor.
   var $soulmates = $('<ul>').addClass('soulmates');
   var $mordor = $('.land:eq(2)');
-  jQuery($mordor).append($soulmates);
+  $($mordor).append($soulmates);
 
   // 2.  Take Frodo and Sam out of The Fellowship and move them
   //     to ul.soulmates in Mordor.
@@ -175,22 +176,35 @@ var itsDangerousToGoAlone = function() {
   var $sam = $('.hobbit:eq(1)');
   // console.log($frodo.text());
   // console.log($sam.text());
+
+  // var $fellows = $('.fellows');
+  $frodo.remove();
+  $sam.remove();
+
   $soulmates.append($frodo);
   $soulmates.append($sam);
-
-  var $fellows = $('.fellows');
-  $fellows.remove($frodo);
-  $fellows.remove($sam);
-
   // 3.  Add a div with an id of "mount-doom" to Mordor
+  var $mountDoom = $('<div>').attr('id', 'mount-doom');
+  $($mordor).append($mountDoom);
 }
 itsDangerousToGoAlone();
 
 function weWantsIt() {
   // 1.  Create a div with an id of "gollum" and add it to Mordor.
+  var $mordor = $('.land:eq(2)');
+  var $gollum = $('<div>').attr('id', 'gollum');
+  $($mordor).append($gollum);
   // 2.  Remove The Ring from Frodo and give it to Gollum.
+  var $hobbits = $('.hobbit');
+  var $frodo = $hobbits.first();
+  $frodo.empty();
+  var $ring = $('#the-ring');
+  $gollum.append($ring);
   // 3.  Move Gollum into Mount Doom.
+  var $mountDoom = $('#mount-doom');
+  $($mountDoom).append($gollum);
 }
+weWantsIt();
 
 function thereAndBackAgain() {
   // 1.  Remove Gollum and the Ring from the document.
