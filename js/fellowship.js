@@ -53,8 +53,8 @@ var keepItSecretKeepItSafe = function() {
   // 2.  Give div#the-ring a class of "magic-imbued-jewelry".
   // 3.  Add div#the-ring as a child element of the li.hobbit
   //     representing "Frodo."
-  var $hobbit = $('.hobbit');
-  var $frodo = $hobbit.first();
+  var $hobbits = $('.hobbit');
+  var $frodo = $hobbits.first();
   $frodo.append($ring);
 }
 keepItSecretKeepItSafe();
@@ -72,14 +72,14 @@ var makeBuddies = function() {
   // 4   Give each li tag a class of "buddy" and append them to
   //       "ul#buddies".
     $buddy.text(buddy);
-    console.log($buddy);
+    // console.log($buddy);
   })
 
   // 5.  Insert the aside tag as a child element of the section.land
   //     representing "Rivendell."
-  console.log(lands[1]);
+  // console.log(lands[1]);
   var $rivendell = $('.land:eq(1)');
-  console.log($rivendell);
+  // console.log($rivendell);
   jQuery($rivendell).append($aside);
 };
 makeBuddies();
@@ -94,59 +94,97 @@ var beautifulStranger = function() {
 }
 beautifulStranger();
 
-// var leaveTheShire = function() {
-//   // 1.  "Assemble the Hobbits" and move them (as a list) to Rivendell.
-//   var $hobbit = $('.hobbit');
-//   console.log($hobbit);
-//   var $rivendell = $('.land:eq(1)');
-//   $($rivendell).append($hobbit);
-// }
-// leaveTheShire();
+var leaveTheShire = function() {
+  // 1.  "Assemble the Hobbits" and move them (as a list) to Rivendell.
+  var $hobbit = $('.hobbit');
+  // console.log($hobbit);
+  var $rivendell = $('.land:eq(1)');
+  $($rivendell).append($hobbit);
+}
+leaveTheShire();
 
 var forgeTheFellowShip = function() {
   // 1.  Create a div with an id of "the-fellowship" within the
   //     section.land for "Rivendell". Append a list to it.
   var $rivendell = $('.land:eq(1)');
   var $fellowship = $('<div>').attr('id', 'the-fellowship').appendTo($rivendell);
-  var $list = $('<ul>').appendTo($fellowship);
+  var $fellows = $('<ul>').addClass('fellows').appendTo($fellowship);
 
   // 2.  Add each hobbit and buddy one at a time to
   //     'div#the-fellowship' list.
+  var $hobbits = $('.hobbit');
+  var moveHobbits = function(hobbit) {
+    for (var i = 0; i < $hobbits.length; i++) {
+      $hobbits.appendTo($fellows);
+      console.log($hobbits[i].textContent + ' has joined the fellowship');
+    }
+  }
+  moveHobbits();
+
   var $buddies = $('.buddy');
   var moveBuddies = function(buddy) {
     for (var i = 0; i < $buddies.length; i++) {
-      $buddies.appendTo($list);
+      $buddies.appendTo($fellows);
   // 3.  After each character is added make an alert that they
   //     have joined your party.
-      alert($buddies[i].textContent + ' has joined the fellowship');
+      // alert($buddies[i].textContent + ' has joined the fellowship');
+      console.log($buddies[i].textContent + ' has joined the fellowship');
   }
-  };
+  }
   moveBuddies();
 }
 forgeTheFellowShip();
 
 var theBalrog = function() {
   // 1.  Select the "li.buddy" for "Gandalf"...
+  // var $buddies = $('.buddy');
+  var $gandalf = $('.buddy:eq(0)');
+  // console.log($gandalf);
+
   // 2.  And change its text to "Gandalf the White", and give it
   //     the class "the-white".
+  $gandalf.text('Gandalf the White').addClass('the-white');
   // 3.  Apply style to the element, adding a "3px solid white"
   //     border to it, giving it a border radius of "10px," and
   //     making it's color white.
+  $gandalf.css({'border':'3px solid white','border-radius':'10px','color':'white'});
 }
+theBalrog();
 
 var hornOfGondor = function() {
   // 1.  Pop up an alert that the Horn of Gondor has been blown.
+  alert("THE HORN OF GONDOR HAS BEEN BLOWN");
   // 2.  Put a line-through on Boromir's name.
+  var $boromir = $('.buddy:eq(3)');
   // 3.  Fade Boromir's opacity to 0.3 (he lives on in spirit).
   // 4.  Make Boromir's text color black.
+  $boromir.css({'text-decoration': 'line-through','opacity': '0.3', 'color': 'black'});
 }
+hornOfGondor();
 
 var itsDangerousToGoAlone = function() {
   // 1.  Create a list with class "soulmates" in Mordor.
+  var $soulmates = $('<ul>').addClass('soulmates');
+  var $mordor = $('.land:eq(2)');
+  jQuery($mordor).append($soulmates);
+
   // 2.  Take Frodo and Sam out of The Fellowship and move them
   //     to ul.soulmates in Mordor.
+  var $hobbits = $('.hobbit');
+  var $frodo = $hobbits.first();
+  var $sam = $('.hobbit:eq(1)');
+  // console.log($frodo.text());
+  // console.log($sam.text());
+  $soulmates.append($frodo);
+  $soulmates.append($sam);
+
+  var $fellows = $('.fellows');
+  $fellows.remove($frodo);
+  $fellows.remove($sam);
+
   // 3.  Add a div with an id of "mount-doom" to Mordor
 }
+itsDangerousToGoAlone();
 
 function weWantsIt() {
   // 1.  Create a div with an id of "gollum" and add it to Mordor.
