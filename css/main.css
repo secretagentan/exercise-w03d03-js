@@ -2,12 +2,12 @@
 
 @font-face {
   font-family: Bilbo;
-  src: url('/fonts/bilboregular.ttf');
+  src: url('../fonts/bilboregular.ttf');
 }
 
 @font-face {
   font-family: BilboBold;
-  src: url('/fonts/bilbobold.ttf');
+  src: url('../fonts/bilbobold.ttf');
 }
 
 
@@ -31,7 +31,7 @@ body {
 body {
   top:  0;
   left: 0;
-  background-image:  url('/images/middle-earth.jpg');
+  background-image:  url('../images/middle-earth.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -113,7 +113,7 @@ article:nth-child(3) {
 }
 
 article:nth-child(3) h1:before {
-  content: url('/images/eye-of-sauron.png');
+  content: url('../images/eye-of-sauron.png');
 
   position: relative;
   top:  0.25em;
@@ -165,7 +165,7 @@ article:nth-child(3) h1:hover {
   height: 150px;
   width:  280px;
 
-  background-image:    url('/images/mt-doom.jpg');
+  background-image:    url('../images/mt-doom.jpg');
   background-repeat:   no-repeat;
   background-position: center 20%;
 }
@@ -174,7 +174,7 @@ article:nth-child(3) h1:hover {
   height: inherit;
   width:  inherit;
 
-  background-image:  url('/images/gollum.png');
+  background-image:  url('../images/gollum.png');
   background-repeat: no-repeat;
 }
 

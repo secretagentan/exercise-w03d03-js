@@ -205,6 +205,7 @@ function weWantsIt() {
   $($mountDoom).append($gollum);
 }
 weWantsIt();
+console.log(weWantsIt);
 
 function thereAndBackAgain() {
   // 1.  Remove Gollum and the Ring from the document.
