@@ -116,7 +116,7 @@ var forgeTheFellowShip = function() {
   var moveHobbits = function(hobbit) {
     for (var i = 0; i < $hobbits.length; i++) {
       $hobbits.appendTo($fellows);
-      console.log($hobbits[i].textContent + ' has joined the fellowship');
+      alert($hobbits[i].textContent + ' has joined the fellowship');
     }
   }
   moveHobbits();
@@ -128,8 +128,8 @@ var forgeTheFellowShip = function() {
   // 3.  After each character is added make an alert that they
   //     have joined your party.
       // alert($buddies[i].textContent + ' has joined the fellowship');
-      console.log($buddies[i].textContent + ' has joined the fellowship');
-  }
+      alert($buddies[i].textContent + ' has joined the fellowship');
+    }
   }
   moveBuddies();
 }
@@ -154,7 +154,7 @@ theBalrog();
 var hornOfGondor = function() {
   // 1.  Pop up an alert that the Horn of Gondor has been blown.
   // alert("THE HORN OF GONDOR HAS BEEN BLOWN");
-  console.log("THE HORN OF GONDOR HAS BEEN BLOWN");
+  alert("THE HORN OF GONDOR HAS BEEN BLOWN");
   // 2.  Put a line-through on Boromir's name.
   var $boromir = $('.buddy:eq(3)');
   // 3.  Fade Boromir's opacity to 0.3 (he lives on in spirit).
@@ -205,7 +205,6 @@ function weWantsIt() {
   $($mountDoom).append($gollum);
 }
 weWantsIt();
-console.log(weWantsIt);
 
 function thereAndBackAgain() {
   // 1.  Remove Gollum and the Ring from the document.
